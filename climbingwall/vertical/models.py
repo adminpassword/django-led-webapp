@@ -22,28 +22,41 @@ class Boulder(models.Model):
     boulder_creator = models.CharField(max_length=15)
     boulder_name = models.CharField(max_length=50)
     boulder_data = models.CharField(max_length=400)
-    
+
+
+    def turn_off_led(self):
+        def blankWipe(strip):
+            for i in range(strip.numPixels()):
+                strip.setPixelColor(i,Color(0,0,0))
+
+        strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL)
+        strip.begin()
+        blankWipe(strip)
+        strip.show()
 
 
     def led_logic(self):
         def find_color(colorNum):
             if colorNum=="1":
-                
-                return Color(255,0,0)
+                c = Color(255,0,0)
+                return c
             if colorNum=="2":
-                return Color(0,255,0)
+                c = Color(0,255,0)
+                return c
             if colorNum=="3":
-                return Color(0,0,255)
+                c = Color(0,0,255)
+                return c
             if colorNum=="4":
-                return Color(255,255,0)
+                c = Color(255,255,0)
+                return c
         def colorWipe(strip, color, wait_ms=50):
-              
+
             for i in range(strip.numPixels()):
                 strip.setPixelColor(i, color)
                 strip.show()
                 time.sleep(wait_ms / 1000.0)
-        def boulderWipe(strip, color,id):
-             
+        def set_pixel(strip, color,id):
+
             print("does it work?")
             strip.setPixelColor(id, color)
             strip.show()
@@ -67,7 +80,7 @@ class Boulder(models.Model):
             id = id + i[z]
             id = id.strip("0")
             print(color+" color and the id ",int(id))
-            
-            
-            boulderWipe(strip,Color(0,0,0,),int(id))
-            strip.show
+
+
+            set_pixel(strip,find_color(color),int(id))
+            strip.show()

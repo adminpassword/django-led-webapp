@@ -6,4 +6,6 @@ urlpatterns = [
     path('', views.HomePageView.as_view(), name='index'),
     path('display', views.DisplayPageView.as_view(), name='display'),
     path('display/<int:boulder_id>', views.request_method, name='led'),
+    path('disable',views.turn_off_led_view, name='disable')
+
 ]

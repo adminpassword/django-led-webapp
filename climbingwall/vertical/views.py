@@ -22,10 +22,15 @@ class DisplayPageView(TemplateView):
 
 def request_method(request,boulder_id):
     c = Boulder.objects.get(pk = boulder_id)
-    print(boulder_id,c.boulder_data)
     c.led_logic()
     template = loader.get_template('vertical/vert.html')
-    now = datetime.datetime.now()
-    html = "<html><body>It is now %s.</body></html>" % now
+
+    return HttpResponse(template.render())
+
+def turn_off_led_view(request):
+    id = 1
+    c = boulder.objects.get(pk = id)
+    c.turn_off_led()
+    template = leader.get_template('vertical/vert.html')
 
     return HttpResponse(template.render())
