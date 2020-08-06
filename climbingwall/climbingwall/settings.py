@@ -25,7 +25,7 @@ SECRET_KEY = 'hcw_akpy8cl@)hv2uqxkuyp^d=putyp++@i^d&asx@p1c3fgfu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.11',]
+ALLOWED_HOSTS = ['192.168.1.11','192.168.1.231',]
 STATIC_ROOT = "static/"
 STATIC_URL = "/static/"
 
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'templates',
-    'tailwind',
+    #'tailwind',
     'theme',
     'vertical',
 
@@ -86,7 +86,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'postgres',
-        'USER': 'postgres',
+        'USER': 'pi',
         'PASSWORD': 'admin',
         'HOST': 'localhost',
         'port': '5432',
