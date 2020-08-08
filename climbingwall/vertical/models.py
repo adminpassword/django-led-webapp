@@ -26,11 +26,13 @@ class Boulder(models.Model):
 
     def turn_off_led(self):
         def blankWipe(strip):
+            print("blacking out leds")
             for i in range(strip.numPixels()):
                 strip.setPixelColor(i,Color(0,0,0))
 
         strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL)
         strip.begin()
+        strip = "test"
         blankWipe(strip)
         strip.show()
 
@@ -62,7 +64,7 @@ class Boulder(models.Model):
             strip.show()
         strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL)
         strip.begin()
-        #colorWipe(strip, Color(0, 0, 0))
+        colorWipe(strip, Color(0, 0, 0))
         n=4
         chunks = [self.boulder_data[i:i+n] for i in range(0, len(self.boulder_data), n)]
         z=0
