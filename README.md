@@ -10,5 +10,7 @@ Basic html/css ✔️
 Setup database ✔️
 Host server with raspberry pi on local network ✔️
 Light up LEDs with test data ✔️
-Create UI to create boulder data ❌
+Create UI to create boulder data ✔️
+
+Website should be very close to done will revamp readme in the future
 
